@@ -9,6 +9,12 @@ terraform {
   }
 }
 
+variable "subdomain" {
+  type        = bool
+  description = "Whether a subdomain should be used by windows RDP."
+  default     = true
+}
+
 variable "order" {
   type        = number
   description = "The order determines the position of app in the UI presentation. The lowest order is shown first and apps with equal order are sorted by name (ascending order)."
@@ -81,7 +87,7 @@ resource "coder_app" "windows-rdp" {
   display_name = "Web RDP"
   url          = "http://localhost:7171"
   icon         = "/icon/desktop.svg"
-  subdomain    = true
+  subdomain    = var.subdomain
   order        = var.order
   group        = var.group
 
