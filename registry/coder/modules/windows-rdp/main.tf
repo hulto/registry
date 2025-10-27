@@ -71,8 +71,8 @@ resource "coder_script" "windows-rdp" {
     admin_username              = var.admin_username
     admin_password              = var.admin_password
     devolutions_gateway_version = var.devolutions_gateway_version
-    username                    = coder_workspace_owner.me.name
-    workspace_name              = coder_workspace.me.name
+    username                    = data.coder_workspace_owner.me.name
+    workspace_name              = data.coder_workspace.me.name
 
     # Wanted to have this be in the powershell template file, but Terraform
     # doesn't allow recursive calls to the templatefile function. Have to feed
