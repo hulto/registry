@@ -153,7 +153,7 @@ async function autoSubmitForm(myForm) {
     /** @type {HTMLLIElement | null} */
     const protocolOption = document.querySelector(
       // biome-ignore lint/style/useTemplate: Have to skip interpolation for the main.tf interpolation
-      'p-dropdownitem[ng-reflect-label="' + PROTOCOL + '"] li',
+      'li.p-dropdown-item[aria-label="' + PROTOCOL + '"]'
     );
 
     if (protocolOption === null) {
@@ -239,7 +239,7 @@ function setupFormDetection() {
   /** @returns {void} */
   const onDynamicTabMutation = () => {
     /** @type {HTMLFormElement | null} */
-    const latestForm = document.querySelector("web-client-form > form");
+    const latestForm = document.querySelector("web-client-form > div > form");
 
     // Only try to auto-fill if we went from having no form on screen to
     // having a form on screen. That way, we don't accidentally override the
@@ -400,7 +400,7 @@ function hideFormForInitialSubmission() {
   window.setTimeout(restoreOpacity, 5_000);
 
   /** @type {HTMLFormElement | null} */
-  const form = document.querySelector("web-client-form > form");
+  const form = document.querySelector("web-client-form > div > form");
   form?.addEventListener(
     "submit",
     () => {
