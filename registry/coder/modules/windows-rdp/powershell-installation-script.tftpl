@@ -81,7 +81,7 @@ ${patch_file_contents}
 $isPatched = Select-String -Path "$devolutionsHtml" -Pattern "$patch" -SimpleMatch
 if ($isPatched -eq $null) {
     (Get-Content $devolutionsHtml).Replace('</app-root>', "</app-root>$patch") | Set-Content $devolutionsHtml
-    (Get-Content $devolutionsHtml).Replace('<base href="/jet/webapp/client/">', '<base href="/@${username}/${workspace_name}.dev/apps/web-rdp/">') | Set-Content $devolutionsHtml
+    (Get-Content $devolutionsHtml).Replace('<base href="/jet/webapp/client/">', '<base href="/@${username}/${workspace_name}.dev/apps/web-rdp/jet/webapp/client/">') | Set-Content $devolutionsHtml
 }
 }
 
