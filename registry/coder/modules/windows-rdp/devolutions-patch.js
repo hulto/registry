@@ -239,7 +239,7 @@ function setupFormDetection() {
   /** @returns {void} */
   const onDynamicTabMutation = () => {
     /** @type {HTMLFormElement | null} */
-    const latestForm = document.querySelector("web-client-form > form");
+    const latestForm = document.querySelector("web-client-form > div > form");
 
     // Only try to auto-fill if we went from having no form on screen to
     // having a form on screen. That way, we don't accidentally override the
